@@ -1,0 +1,37 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">    
+
+<hibernate-configuration>
+
+    <session-factory>
+		
+<!--    PROPRIEDADES COMUNS    -->
+		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
+		<property name="show_sql">false</property>
+		<property name="hibernate.generate_statistics">false</property>
+		<property name="hibernate.format_sql">false</property>
+		<property name="hibernate.use_sql_comments">false</property>
+		<property name="hibernate.connection.isolation">2</property>
+		
+
+<!--    DESCOMENTE O TRECHO ABAIXO PARA USAR O POOL DO TOMCAT    -->		
+<!--    		<property name="hibernate.connection.datasource">java:comp/env/jdbc/FMC</property>   -->
+<!--    		<property name="hibernate.jndi.url">http://localhost:8080</property>   -->
+
+<!-- 	inicio-pool-hibernate -->
+<!--    DESCOMENTE O TRECHO ABAIXO PARA USAR O POOL DO HIBERNATE    -->
+		<property name="connection.driver_class">org.postgresql.Driver</property>
+		<property name="connection.url">jdbc:postgresql://localhost:5432/ponto2</property>
+		<property name="connection.username">postgres</property>
+		<property name="connection.password">281087</property>
+		<property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+		<property name="hbm2ddl.auto">update</property>
+<!--	fim-pool-hibernate -->
+
+    </session-factory>
+</hibernate-configuration>
+
+
+
