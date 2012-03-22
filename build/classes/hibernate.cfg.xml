@@ -16,18 +16,15 @@
 		<property name="hibernate.connection.isolation">2</property>
 		
 
-<!--    DESCOMENTE O TRECHO ABAIXO PARA USAR O POOL DO TOMCAT    -->		
-<!--    		<property name="hibernate.connection.datasource">java:comp/env/jdbc/FMC</property>   -->
-<!--    		<property name="hibernate.jndi.url">http://localhost:8080</property>   -->
 
 <!-- 	inicio-pool-hibernate -->
 <!--    DESCOMENTE O TRECHO ABAIXO PARA USAR O POOL DO HIBERNATE    -->
 		<property name="connection.driver_class">org.postgresql.Driver</property>
-		<property name="connection.url">jdbc:postgresql://localhost:5432/ponto2</property>
+		<property name="connection.url">jdbc:postgresql://localhost:5432/usuario</property>
 		<property name="connection.username">postgres</property>
 		<property name="connection.password">281087</property>
 		<property name="hibernate.bytecode.use_reflection_optimizer">false</property>
-		<property name="hbm2ddl.auto">update</property>
+		<property name="hbm2ddl.auto">create</property>
 <!--	fim-pool-hibernate -->
 
     </session-factory>

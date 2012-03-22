@@ -17,5 +17,19 @@ Sistema de Cadastro de Usuario
 ola mundo
 </h1>
 <a href="olamundo">Redirecionar<a>
+<table>
+	<tr>
+		<td>Id</td>
+		<td>Nome</td>
+		<td>Login</td>
+	</tr>
+	<c:forEach items="${listaUsuario}" var="usuario">
+	<tr>
+		<td>${usuario.id}</td>
+		<td>${usuario.nome}</td>
+		<td>${usuario.login}</td>
+	</tr>
+	</c:forEach>
+</table>
 </body>
 </html>
