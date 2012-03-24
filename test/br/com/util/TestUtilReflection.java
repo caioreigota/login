@@ -1,12 +1,12 @@
 package br.com.util;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.lang.reflect.Method;
 
 import org.junit.Test;
-import org.junit.Assert.*;
 
+import br.com.controle.action.UsuarioAction;
 import br.com.modelo.Usuario;
 
 public class TestUtilReflection {
@@ -25,5 +25,6 @@ public class TestUtilReflection {
 		assertEquals("setId",metodos[5].getName());
 			
 	}
+	
 
 }
