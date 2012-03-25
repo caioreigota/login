@@ -8,23 +8,49 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"/>
 
-<script type="text/javascript">
-function chamaMetodo(id){
+<script language= "javascript"> 
+function chama(id){
 	console.log(id);
 	$('#parametroMenu').val(id);
-	$('#metodo').val("editarUsuario");
-	form.submit();
 }
 </script>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-1.7.2.min.js"></script> 
+
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Sistema de Cadastro de Usuario</title>
+<style type="text/css">
+<!--
+
+#menu {
+	height: 162px;
+	width: 229px;
+	position: absolute;
+	left: 426px;
+	top: 157px;
+	right: 0%;
+}
+-->
+</style>
+<style type="text/css">
+<!--
+#cabecalho {
+	height: 318px;
+	width: 655px;
+	position: relative;
+	left: 278px;
+	top: 6px;
+}
+-->
+</style>
 </head>
 <body>
-<div style="text-align: center;" id="cabecalho">
+
+<div  id="cabecalho">
 	<form name="form" action="usuario" method="POST">
 		<s:hidden id="parametroMenu"  name="parametroMenu" />
+		<h1><s:actionmessage/></h1>
 		<table border="1" style="width: 50%">
 		<caption>
 		<h1>
@@ -36,20 +62,28 @@ function chamaMetodo(id){
 				<th>Id</th>
 				<th>Nome</th>
 				<th>Login</th>
-				
+				<th>Editar</th>
+				<th>Excluir</th>
 			</tr>
 			</thead>
-			
-			<c:forEach items="${listaUsuario}" varStatus="i" var="usuario">
-			<tr onclick="chamaMetodo('${usuario.id}')">
-				<td>${usuario.id}</td>
-				<td>${usuario.nome}</td>
-				<td>${usuario.login}</td>
-				
-			</tr>
-			</c:forEach>
-			<tr>
-			</tr>
+			<c:choose>
+				<c:when test="${!empty listaUsuario}">
+					<c:forEach items="${listaUsuario}" varStatus="i" var="usuario">
+						<tr onmouseover="chama('${usuario.id}')">
+							<td>${usuario.id}</td>
+							<td>${usuario.nome}</td>
+							<td>${usuario.login}</td>
+							<td><input type="submit" id="_editarUsuario" name="method:editarUsuario" value="Editar"></td>
+							<td><input type="submit" id="_excluirUsuario" name="method:excluirUsuario" value="Excluir"></td>
+						</tr>
+					</c:forEach>
+				</c:when>
+				<c:otherwise> 
+					<tr>
+						<td style="color: red" colspan="5">Nenhum Registro Encontrado</td>
+					</tr>
+				</c:otherwise>
+			</c:choose>
 		</table>
 		<table style="width: 50%" border="1">
 			<caption>
@@ -63,23 +97,28 @@ function chamaMetodo(id){
 				<td><input type="text" name="usuario.nome"/></td>
 				<td><input type="text" name="usuario.login"/></td>
 			</tr>
-			<tr>
-				<td colspan="2"><s:submit  method="pesquisar" value="Criar tabelas no banco"/></td>
-			</tr>
+			
+				<td colspan="2">
+					<s:submit  method="pesquisar" value="Filtrar"/>
+				</td>	
 		</table>
-		<table border="1">
-			<tr >
-				<td>
-					<s:submit  method="criarBanco" value="Criar tabelas no banco"/>
-				</td>
-				<td>
-					<s:submit  method="listarUsuario" value="Listar usuarios"/>
-				</td>
-				<td>
-					<s:submit  method="criarUsuario" value="Criar Usuario"/>
-				</td>
-			</tr>
-		</table>
+        <div id= "menu" >
+          <table>
+            <tr>
+              <td> <s:submit  method="criarBanco" value="Criar tabelas no banco"/> </td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              <td> <s:submit  method="listarUsuario" value="Listar todos os usuarios"/> </td>
+            </tr>
+          </table>
+          <table>
+            <tr>
+              <td> <s:submit  method="criarUsuario" value="Criar usuario"/></td>
+            </tr>
+          </table>
+      </div>
 	</form>
 </div>
 </body>

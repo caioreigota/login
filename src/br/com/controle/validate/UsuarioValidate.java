@@ -31,4 +31,16 @@ public class UsuarioValidate {
 	public static Usuario acessarEdicao(String parametroMenu) {
 		return new Buscador().selecionar(new Usuario(parametroMenu));
 	}
+
+	public static void excluir(final Usuario usuario) {
+		TemplateTransacao.executar(new Transacao() {
+			
+			@Override
+			public Object executarTransacao(Session session) {
+				excluir(usuario, session);
+				return usuario;
+			}
+		});
+		
+	}
 }

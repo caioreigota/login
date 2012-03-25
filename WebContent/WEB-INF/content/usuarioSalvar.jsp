@@ -17,61 +17,79 @@
 	</c:otherwise>
 </c:choose>
 </title>
+<style type="text/css">
+<!--
+#formulario {
+	position: absolute;
+	left: 491px;
+	top: 29px;
+}
+#botao {
+	position: absolute;
+	width: 110px;
+	left: 365,000px;
+	top: 50,000px;
+}
+-->
+</style>
 </head>
 <body>
-
+<div id="formulario">
 <c:choose>
 <c:when test="${empty usuario.id}">
-	<s:text name="usuario.criacao"></s:text>
+	<s:text name="usuario.criacao"/>
 </c:when>
 <c:otherwise>
-	<s:text name="usuario.edicao"></s:text>
+	<s:text name="usuario.edicao"/>
 </c:otherwise>
 </c:choose>
 <form action="usuario" method="POST">
+<s:hidden name="usuario.id" />
+	
+	
+		
+	
 	<table >
 		<tr>
 			<td>
-				Nome:
-			</td>
-			<td>
-				<input type="text" name="usuario.nome"/>
-			</td>
-		</tr>
-		<tr>
-			<td>
-				Login:
-			</td>
-			<td>
-				<input type="text" name="usuario.login"/>
+				<s:textfield label="Nome" name="usuario.nome"/>
+				<br>
+				<s:fielderror fieldName="usuario.nome"/>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				Senha:
-			</td>
-			<td>
-				<input type="password" name="usuario.senha"/>
+				<s:textfield label="Login" name="usuario.login"/>
+				<br>
+				<s:fielderror fieldName="usuario.login"/>
 			</td>
 		</tr>
 		<tr>
 			<td>
-				
+				<s:password label="Senha" name="usuario.senha"/>
 			</td>
+		</tr>
+		<tr>
 			<td>
 				<c:choose>
 					<c:when test="${empty usuario.id}">
-						<s:submit  method="salvar" value="usuario.criar"/>
+						<s:submit  method="salvar" value="Criar Usuario"/>
 					</c:when>
 					<c:otherwise>
-						<s:submit  method="editar" value="usuario.editar"/>
+						<s:submit  method="editar" value="Editar Usuario"/>
 					</c:otherwise>
 				</c:choose>
 			</td>
 		</tr>
 			
 	</table>
+	<div id="botao">
+		<s:submit  method="listarUsuario" value="Voltar"/>
+	</div>
 </form>
+</div>
+
+
 
 </body>
 </html>

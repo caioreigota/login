@@ -12,7 +12,9 @@ import br.com.modelo.Usuario;
 import br.com.util.UtilReflection;
 
 import com.opensymphony.xwork2.ActionSupport;
+import com.opensymphony.xwork2.validator.annotations.Validations;
 
+@Validations
 public class UsuarioAction extends ActionSupport{
 	
 	/**
@@ -72,12 +74,11 @@ public class UsuarioAction extends ActionSupport{
 			return TELA_ERRO;
 		}
 	}
-	
+
 	public String redirecionador(String metodo){
 		return (String) UtilReflection.invocarMetodo(metodo, this);
-		
-	}
-	
+
+	}	
 
 	public Usuario getUsuario() {
 		return usuario;
@@ -111,7 +112,7 @@ public class UsuarioAction extends ActionSupport{
 	}
 	public String editarUsuario(){
 		if(Util.preenchido(this.getParametroMenu())){
-			this.setUsuario(UsuarioValidate.acessarEdicao(this.getParametroMenu()));
+			usuario = UsuarioValidate.acessarEdicao(this.getParametroMenu());
 		}
 		return TELA_USUARIO_SALVAR;
 	}
@@ -122,7 +123,12 @@ public class UsuarioAction extends ActionSupport{
 	}
 	public String editar(){
 		UsuarioValidate.salvar(usuario);
-		super.addActionMessage(getText("usuario.cadastro.sucesso"));
+		super.addActionMessage(getText("usuario.editado.sucesso"));
+		return listarUsuario();
+	}
+	public String excluirUsuario(){
+		UsuarioValidate.excluir(UsuarioValidate.acessarEdicao(this.getParametroMenu()));
+		super.addActionMessage(getText("usuario.excluido.sucesso"));
 		return listarUsuario();
 	}
 	public String pesquisar(){

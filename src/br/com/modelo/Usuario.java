@@ -16,7 +16,14 @@ public class Usuario implements Entidade{
 	private Integer id;
 	private String login;
 	private String nome;
+	private String senha;
 	
+	public String getSenha() {
+		return senha;
+	}
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
 	public Usuario(){
 		
 	}
@@ -31,7 +38,7 @@ public class Usuario implements Entidade{
 	public void setLogin(String login) {
 		this.login = login;
 	}
-
+	
 	public String getNome() {
 		return nome;
 	}
