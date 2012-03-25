@@ -7,6 +7,6 @@
 <title>Tela de Erro</title>
 </head>
 <body>
-
+<h1>Ocorreu um erro inesperado</h1>
 </body>
 </html>

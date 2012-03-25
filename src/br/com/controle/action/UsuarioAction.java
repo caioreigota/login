@@ -7,15 +7,13 @@ import org.apache.struts2.convention.annotation.Result;
 
 import br.com.controle.validate.UsuarioValidate;
 import br.com.hibernateUtil.HibernateUtil;
-import br.com.util.Util;
 import br.com.modelo.Usuario;
+import br.com.util.Util;
 import br.com.util.UtilReflection;
 
 import com.opensymphony.xwork2.ActionSupport;
-import com.opensymphony.xwork2.validator.annotations.Validations;
 
-@Validations
-public class UsuarioAction extends ActionSupport{
+			public class UsuarioAction extends ActionSupport{
 	
 	/**
 	 * 
@@ -58,27 +56,14 @@ public class UsuarioAction extends ActionSupport{
 	}
 
 	@Action(value = "usuario", results = {
-			@Result(location = "index.jsp", name = TELA_INICIAL),
+			@Result(location = "usuarioTabela.jsp", name = TELA_INICIAL),
 			@Result(location = "usuarioSalvar.jsp", name = TELA_USUARIO_SALVAR),
 			@Result(location = "erro.jsp", name = TELA_ERRO)
 	})
 	public String execute() {
-		try{
-			if(Util.preenchido(metodo)){
-				return redirecionador(metodo);
-			}else{
-				throw new Exception("Parametro metodo não está preenchido");
-			}
-		}catch(Exception e){
-			e.printStackTrace();
-			return TELA_ERRO;
-		}
+		return listarUsuario();
 	}
 
-	public String redirecionador(String metodo){
-		return (String) UtilReflection.invocarMetodo(metodo, this);
-
-	}	
 
 	public Usuario getUsuario() {
 		return usuario;
