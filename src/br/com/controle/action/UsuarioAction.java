@@ -61,7 +61,14 @@ import com.opensymphony.xwork2.ActionSupport;
 			@Result(location = "erro.jsp", name = TELA_ERRO)
 	})
 	public String execute() {
+		try{
 		return listarUsuario();
+		}catch(Exception e){
+			super.addActionMessage(getText("inicializarbanco"));
+			return TELA_INICIAL;
+
+		}
+		
 	}
 
 
