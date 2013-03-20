@@ -9,11 +9,11 @@
 		
 <!--    PROPRIEDADES COMUNS    -->
 		<property name="hibernate.dialect">org.hibernate.dialect.PostgreSQLDialect</property>
-		<property name="show_sql">false</property>
+		<property name="show_sql">true</property>
 		<property name="hibernate.generate_statistics">false</property>
 		<property name="hibernate.format_sql">false</property>
 		<property name="hibernate.use_sql_comments">false</property>
-		<property name="hibernate.connection.isolation">2</property>
+		
 		
 
 
@@ -22,9 +22,9 @@
 		<property name="connection.driver_class">org.postgresql.Driver</property>
 		<property name="connection.url">jdbc:postgresql://localhost:5432/usuario</property>
 		<property name="connection.username">postgres</property>
-		<property name="connection.password">281087</property>
+		<property name="connection.password">caio281087</property>
 		<property name="hibernate.bytecode.use_reflection_optimizer">false</property>
-		<property name="hbm2ddl.auto">create</property>
+		<property name="hbm2ddl.auto">update</property>
 <!--	fim-pool-hibernate -->
 
     </session-factory>

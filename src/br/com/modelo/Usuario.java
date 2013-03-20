@@ -7,6 +7,10 @@ import javax.persistence.SequenceGenerator;
 
 
 
+
+
+
+
 @Entity
 @SequenceGenerator(name = "seq_usuario", sequenceName = "seq_usuario")
 public class Usuario implements Entidade{

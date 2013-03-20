@@ -9,6 +9,7 @@ import org.hibernate.tool.hbm2ddl.SchemaExport;
 
 import br.com.modelo.Usuario;
 
+
 public class HibernateUtil 
 {
 	private static SessionFactory factory;
@@ -17,6 +18,7 @@ public class HibernateUtil
 	static {
 	cfg = new AnnotationConfiguration();
 	cfg.addAnnotatedClass(Usuario.class);
+	cfg.configure("hibernate.cfg.xml");
 	factory = cfg.buildSessionFactory();
 	}
 	
@@ -33,7 +35,5 @@ public class HibernateUtil
 	public static AnnotationConfiguration getAnnotationConfiguration(){
 		return cfg;
 	}
-	public static void gerarBanco(){
-		new SchemaExport(cfg).create(true, true);
-	}
+	
 }

@@ -5,6 +5,6 @@
 
 <struts>
 
-	<constant name="struts.custom.i18n.resources" value="mensagens, erros" />
+	<constant name="struts.custom.i18n.resources" value="mensagens" />
 	
 </struts>

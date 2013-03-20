@@ -1,17 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://java.sun.com/xml/ns/javaee" xmlns:web="http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd" id="WebApp_ID" version="2.5">
-  <display-name>login</display-name>
+
+<web-app xmlns="http://java.sun.com/xml/ns/j2ee"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee/web-app_2_4.xsd"
+	version="2.4">
+<display-name>login</display-name>
   <filter>
     <filter-name>struts2</filter-name>
-    <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
-    
+    <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>  
   </filter>
   <filter-mapping>
     <filter-name>struts2</filter-name>
-    <url-pattern>/*</url-pattern>
+    <url-pattern>/suite/*</url-pattern>
   </filter-mapping>
   <welcome-file-list>
-    <welcome-file>index.jsp</welcome-file>
+    <welcome-file>content/suite/index.jsp</welcome-file>
   </welcome-file-list>
+  
+  <taglib>
+  	<taglib-uri>/tags/tags</taglib-uri>
+  	<taglib-location>/WEB-INF/tags/tags.tld</taglib-location>
+  </taglib>
   
 </web-app>

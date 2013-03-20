@@ -56,15 +56,15 @@ import com.opensymphony.xwork2.ActionSupport;
 	}
 
 	@Action(value = "usuario", results = {
-			@Result(location = "usuarioTabela.jsp", name = TELA_INICIAL),
-			@Result(location = "usuarioSalvar.jsp", name = TELA_USUARIO_SALVAR),
-			@Result(location = "erro.jsp", name = TELA_ERRO)
+			@Result(location = "suite/usuarioTabela.jsp", name = TELA_INICIAL),
+			@Result(location = "suite/usuarioSalvar.jsp", name = TELA_USUARIO_SALVAR),
+			@Result(location = "suite/erro.jsp", name = TELA_ERRO)
 	})
 	public String execute() {
 		try{
 		return listarUsuario();
 		}catch(Exception e){
-			super.addActionMessage(getText("inicializarbanco"));
+			//super.addActionMessage(getText("inicializarbanco"));
 			return TELA_INICIAL;
 
 		}
@@ -88,12 +88,7 @@ import com.opensymphony.xwork2.ActionSupport;
 		this.listaUsuario = listaUsuario;
 	}
 	
-	public String criarBanco(){
-		HibernateUtil.gerarBanco();
-		return TELA_INICIAL;
-	}
-
-	
+		
 	public String listarUsuario(){
 		this.listaUsuario = UsuarioValidate.listar(new Usuario());
 		return TELA_INICIAL;
@@ -110,7 +105,7 @@ import com.opensymphony.xwork2.ActionSupport;
 	}
 	public String salvar(){
 		UsuarioValidate.salvar(usuario);
-		super.addActionMessage(getText("usuario.cadastro.sucesso"));
+		super.addActionMessage( getText("usuario.cadastro.sucesso"));
 		return listarUsuario();
 	}
 	public String editar(){

@@ -1,0 +1,34 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+    "-//Hibernate/Hibernate Configuration DTD//EN"
+    "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">    
+
+<hibernate-configuration>
+
+    <session-factory>
+		
+<!--    PROPRIEDADES COMUNS    -->
+		<property name="hibernate.dialect">org.hibernate.dialect.MySQLInnoDBDialect</property>
+		<property name="show_sql">true</property>
+		<property name="hibernate.generate_statistics">false</property>
+		<property name="hibernate.format_sql">false</property>
+		<property name="hibernate.use_sql_comments">false</property>
+		<property name="hibernate.connection.isolation">2</property>
+		
+
+
+<!-- 	inicio-pool-hibernate -->
+<!--    DESCOMENTE O TRECHO ABAIXO PARA USAR O POOL DO HIBERNATE    -->
+		<property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+		<property name="connection.url">jdbc:mysql://localhost:3306/usuario</property>
+		<property name="connection.username">root</property>
+		<property name="connection.password">caio281087</property>
+		<property name="hibernate.bytecode.use_reflection_optimizer">false</property>
+		<property name="hbm2ddl.auto">create</property>
+<!--	fim-pool-hibernate -->
+
+    </session-factory>
+</hibernate-configuration>
+
+
+
