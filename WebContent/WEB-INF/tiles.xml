@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN" "http://struts.apache.org/dtds/tiles-config_2_0.dtd">     
+<tiles-definitions>
+   <!-- definição do layout da página principal -->
+   <definition name="template.page" template="/template/layout.jsp">
+      <put name="header" value="/template/cabecalho.jsp"/>
+      <put name="menu" value="/template/menu.jsp"/>        
+      <put name="footer" value="/template/rodape.jsp" />
+   </definition>
+   <definition name="welcome.page" extends="template.page">
+      <put name="body" value="/suite/usuarioTabela.jsp"/>
+   </definition>
+</tiles-definitions>
