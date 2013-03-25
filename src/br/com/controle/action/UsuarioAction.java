@@ -56,7 +56,7 @@ import com.opensymphony.xwork2.ActionSupport;
 	}
 
 	@Action(value = "usuario", results = {
-			@Result(location = "<result type='tiles'>welcome.page</result>", name = TELA_INICIAL),
+			@Result(location = "welcome.page",type="tiles", name = TELA_INICIAL),
 			@Result(location = "suite/usuarioSalvar.jsp", name = TELA_USUARIO_SALVAR),
 			@Result(location = "suite/erro.jsp", name = TELA_ERRO)
 	})

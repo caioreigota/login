@@ -1,13 +1,18 @@
-<?xml version="1.0" encoding="ISO-8859-1" ?>
-<!DOCTYPE tiles-definitions PUBLIC "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN" "http://struts.apache.org/dtds/tiles-config_2_0.dtd">     
+<?xml version="1.0" encoding="UTF-8" ?>
+ 
+<!DOCTYPE tiles-definitions PUBLIC
+       "-//Apache Software Foundation//DTD Tiles Configuration 2.0//EN"
+       "http://tiles.apache.org/dtds/tiles-config_2_0.dtd">   
 <tiles-definitions>
-   <!-- definição do layout da página principal -->
-   <definition name="template.page" template="/template/layout.jsp">
-      <put name="header" value="/template/cabecalho.jsp"/>
-      <put name="menu" value="/template/menu.jsp"/>        
-      <put name="footer" value="/template/rodape.jsp" />
+   <!-- definiÃ§Ã£o do layout da pÃ¡gina principal -->
+   <definition name="template.page" template="/WEB-INF/content/template/layout.jsp">
+   	  <put-attribute name="title" value=""/>
+      <put-attribute name="header" value="/WEB-INF/content/template/cabecalho.jsp"/>
+      <put-attribute name="menu" value="/WEB-INF/content/template/menu.jsp"/>        
+      <put-attribute name="footer" value="/WEB-INF/content/template/rodape.jsp" />
+      <put-attribute name="body" value=""/>
    </definition>
    <definition name="welcome.page" extends="template.page">
-      <put name="body" value="/suite/usuarioTabela.jsp"/>
+      <put-attribute name="body" value="/WEB-INF/content/suite/usuarioTabela.jsp"/>
    </definition>
 </tiles-definitions>

@@ -24,12 +24,6 @@ function chama(id){
 <style type="text/css">
 <!--
 
-#menu {
-	position: absolute;
-	left: 800px;
-	top: 200px;
-	right: 0%;
-}
 
 <!-- Estilo do Fomulário -->
 
@@ -104,17 +98,6 @@ tbody tr:hover { background:#87CEFF;
  color:#000000;
 }
 
-</style>
-<style type="text/css">
-<!--
-#cabecalho {
-	height: 318px;
-	width: 655px;
-	position: relative;
-	left: 278px;
-	top: 6px;
-}
--->
 </style>
 </head>
 <body>

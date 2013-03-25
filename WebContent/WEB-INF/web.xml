@@ -13,14 +13,20 @@
     <filter-name>struts2</filter-name>
     <url-pattern>/suite/*</url-pattern>
   </filter-mapping>
+    <listener>
+    <listener-class>
+        org.apache.struts2.tiles.StrutsTilesListener
+    </listener-class>
+</listener>
+<context-param>
+    <param-name>tilesDefinitions</param-name>
+    <param-value>/WEB-INF/tiles.xml</param-value>
+</context-param> 
+  
   <welcome-file-list>
     <welcome-file>content/suite/index.jsp</welcome-file>
   </welcome-file-list>
-  
-  <listener>
-      <listener-class>org.apache.tiles.web.startup.TilesListener</listener-class>
-   </listener> 
-  
+
   <taglib>
   	<taglib-uri>/tags/tags</taglib-uri>
   	<taglib-location>/WEB-INF/tags/tags.tld</taglib-location>

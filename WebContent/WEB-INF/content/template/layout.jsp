@@ -11,29 +11,24 @@
 <%-- definição do layout --%>
 <html>
   <head>
-    <!-- recupera o atributo setado na definição do tiles.xml -->
+<link rel="stylesheet" type="text/css" href="../../login/css/layout.css">
+<!-- recupera o atributo setado na definição do tiles.xml -->
     <title><tiles:getAsString name="title"/></title>
   </head>
-  <body>  
-    <table width="100%" height="100%">
-      <tr bgcolor="yellow">
-        <td colspan="2">
-          <tiles:insertAttribute name="header" />
-        </td>
-      </tr>
-      <tr>
-        <td bgcolor="gray">
-          <tiles:insertAttribute name="menu" />
-        </td>
-        <td>
-          <tiles:insertAttribute name="body" />
-        </td>
-      </tr>
-      <tr bgcolor="yellow">
-        <td colspan="2">
-          <tiles:insertAttribute name="footer" />
-        </td>
-      </tr>
-    </table>  
+  <body>
+  <div class="tudo" id="tudo">
+    <div class="cabecalho" id="cabecalho">
+      <tiles:insertAttribute name="header" />
+    </div>
+    <div class="menu" id="menu">
+      <tiles:insertAttribute name="menu" />
+    </div>
+    <div class="corpo" id="corpo">
+      <tiles:insertAttribute name="body" />
+    </div>
+    <div class="rodape" id="rodape">
+      <tiles:insertAttribute name="footer" />
+    </div>
+  </div>
   </body>
 </html>

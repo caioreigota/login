@@ -6,5 +6,13 @@
 <struts>
 
 	<constant name="struts.custom.i18n.resources" value="mensagens" />
+<constant name="struts.convention.default.parent.package" value="restful"/>
+
+<package name="restful"  extends="rest-default, struts-default, json-default">
+    <result-types>
+        <result-type name="tiles" class="org.apache.struts2.views.tiles.TilesResult" />
+    </result-types> 
+
+</package>
 	
 </struts>
